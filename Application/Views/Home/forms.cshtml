@@ -1,0 +1,96 @@
+﻿
+@{ ViewBag.Title = "forms"; }
+
+@model Application.Model.applicationtable
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Forms</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">.0
+                            Basic Form Elements
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    @Html.HiddenFor(m => m.id);
+
+                                    @using (Html.BeginForm("forms", "Home", FormMethod.Post,new {id="form" }))
+                                    {
+
+
+                                    <div class="form-group">
+                                        @Html.HiddenFor(m => m.id);
+
+
+                                        <div class="form-group">
+                                            <label>Name:-</label>
+                                            @Html.TextBoxFor(m => m.name, new { @class = "form-control", @required = "required" })
+                                            @Html.ValidationMessageFor(m => m.name, "", new { @class = "error" })<br />
+
+                                            <label>Email:-</label>
+                                            @Html.TextBoxFor(m => m.email, new { @class = "form-control", @required = "required" })
+                                            @Html.ValidationMessageFor(m => m.email, "", new { @class = "error" })<br />
+
+
+                                            <label>Mobile:-</label>
+                                            @Html.TextBoxFor(m => m.mobile, new { @class = "form-control", @required = "required" })
+                                            @Html.ValidationMessageFor(m => m.mobile, "", new { @class = "error" })<br />
+
+                                            <label>Address:-</label>
+                                            @Html.TextBoxFor(m => m.address, new { @class = "form-control", @required = "required" })
+                                            @Html.ValidationMessageFor(m => m.address, "", new { @class = "error" })<br />
+                                        </div>
+
+                                        @*<button type="submit" class="btn btn-success">submit</button>*@
+                                        <button type="button" id="btn" class="btn btn-success">submit</button>
+                                    </div>}
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /#page-wrapper -->
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#btn").click(function () {
+            var url = $("#form").attr("action")
+            var data = $("#form").serialize();
+            $.ajax({
+                type: 'post',
+                url: url,
+                data: data
+
+            }).done(function (response) {
+                if (response) {
+                    alert("form submitted");
+                }
+                else {
+                    alert("form not submitted");
+                }
+
+            })
+        })
+    })
+</script>

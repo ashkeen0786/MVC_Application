@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "first";
+}
+
+@{ Layout = null; }
+
+<link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/css/metisMenu.min.css" rel="stylesheet" />
+<link href="~/Content/css/startmin.css" rel="stylesheet" />
+
+<link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+
+<style>
+    body {
+        background: rgb(2,0,36);
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(114,9,121,0.6415777981114321) 35%, rgba(0,212,255,1) 100%);
+    }
+</style>
+  
+
+
+<div class=" container">
+    <h1 class="text-center">My Application</h1>
+
+    <div class="row">
+        <div class="col-md-4 col-md-4 center-block">
+
+            
+
+            <a href="@Url.Action("Index")" class="btn btn-warning">Log In</a>
+               
+
+            <a href="@Url.Action("sign")" class="btn btn-primary">Sign Up</a>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "sign";
+}
+
+@{
+    Layout = null;
+}
+@model Application.Model.usertable
+
+<link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/css/metisMenu.min.css" rel="stylesheet" />
+<link href="~/Content/css/startmin.css" rel="stylesheet" />
+
+<link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+
+
+
+
+<div class="row">
+
+    <div class="col-md-4 col-md-offset-4">
+        <div class="login-panel panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Please Sign In</h3>
+            </div>
+            <div class="panel-body">
+                <form role="form" method="post">
+                    <fieldset>
+                        @using (Html.BeginForm("sign", "Home", FormMethod.Post))
+                        {
+
+
+                        <div class="form-group">
+
+
+
+
+                            <div class="form-group">
+                                <label>Name:-</label>
+                                @Html.TextBoxFor(m => m.name, new { @class = "form-control", @required = "required" })
+                                @Html.ValidationMessageFor(m => m.name, "", new { @class = "error" })<br />
+
+                                <label>Email:-</label>
+                                @Html.TextBoxFor(m => m.eamil, new { @class = "form-control", @required = "required" })
+                                @Html.ValidationMessageFor(m => m.eamil, "", new { @class = "error" })<br />
+
+
+                                <label>Mobile:-</label>
+                                @Html.TextBoxFor(m => m.mobile, new { @class = "form-control", @required = "required" })
+                                @Html.ValidationMessageFor(m => m.mobile, "", new { @class = "error" })<br />
+
+                                <label>Password:-</label>
+                                @Html.TextBoxFor(m => m.password, new { @class = "form-control", @Type = "password", @required = "required" })
+                                @Html.ValidationMessageFor(m => m.password, "", new { @class = "error" })<br />
+                            </div>
+
+                            <button type="submit" class="btn btn-success">submit</button>
+                            <a href="@Url.Action("Index")" class="btn btn-warning">Log In</a>
+                        </div>}
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@{ 
+    Layout = null;
+}
+@model Application.Model.usertable
+
+<link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/css/metisMenu.min.css" rel="stylesheet" />
+<link href="~/Content/css/startmin.css" rel="stylesheet" />
+
+<link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+
+
+<div class="container">
+    <div class="row">
+        
+            <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Please Sign In</h3>
+                </div>
+                <div class="panel-body">
+                     @using (Html.BeginForm("index", "Home", FormMethod.Post))
+                     {
+                    <fieldset>
+                        @TempData["wrong"]
+                        @TempData["invalid"]
+                        <div class="form-group">
+                            <label>Name:-</label>
+                            @Html.TextBoxFor(m => m.name, new { @class = "form-control", @required = "required" })
+                            @Html.ValidationMessageFor(m => m.name, "", new { @class = "error" })
+                        </div>
+                        <div class="form-group">
+                            <label>password</label>
+                            @Html.PasswordFor(m => m.password, new { @class = "form-control", @required = "required" })
+                            @Html.ValidationMessageFor(m => m.password, "", new { @class = "error" })
+                        </div>
+
+                        <!-- Change this to a button or input when using this as a form -->
+                        <button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
+
+                        <a href="@Url.Action("sign")">SignUp</a>
+                    </fieldset>
+                     }
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
